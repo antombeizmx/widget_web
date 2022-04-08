@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en" style="width:inherit;height:200vh;">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libreria Widgets</title>
+</head>
+<body>
+    <link href="https://app.mailermatic.io/core/css/embedded.css" rel="stylesheet" type="text/css">
+    <link href="https://app.mailermatic.io/core/css/google-font-icon.css" rel="stylesheet">
+    <link href="https://app.mailermatic.io/core/css/app.css?v=4.0.24-p213" rel="stylesheet" type="text/css">
+    <script src="https://sitecloudcentral.com/js/vp_player.min.js?v=1.1.29" data-cfasync="false" type="text/javascript">
+    </script>
+       <!-- <div id="vf_root"></div>
+       <script>
+       var video_piper ={
+           product_id: "m819xasd",
+           video_share: "https://videofunnel.in/videofunnels/m819xasd/",
+           widgetType: "circle",
+           text: "CLIC AQUÍ PARA DESCUENTO (Espera 8s aprox....)",
+           backgroundColor: "#fbff00",
+           position: "left",
+           is_chat: "false",
+           is_chat_data: " ",
+           is_dissmiss: "false",
+           type: "videofunnel",
+           textColor: '#fff'
+           }
+       </script>
+       <script src="https://videofunnel.in/public/js/videoformiframe.js"></script> -->
+    <style>
+        p{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            margin: 0;
+            padding: 0;
+        }
+        .form-group{
+            margin: 0px;
+        }
+        .control-text
+        {
+            margin: 0px;
+        }
+    /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+/* p,div{margin:0;padding:0;} */
+.contenedor_formulario{position: fixed; top: 0;left: 0;width: 100%;height: 100%;z-index: 100;}
+    .contenedor_division{position: relative; width: 100%;height: 100%;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;}
+    .fondo_c_formulario{position: absolute; top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,0.1);}
+    .contenedor_video_completo
+    {
+        position: fixed; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 200;
+        background-color: #000;
+    }
+    /* Para cambiar el tamano del fomulario de deben alterar 2 propiedades: width y height */
+    .formulario_informacion
+    {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; 
+        -webkit-box-orient: vertical; 
+        -webkit-box-direction: normal; 
+            -ms-flex-direction: column; 
+                flex-direction: column; 
+        -webkit-box-pack:center; 
+            -ms-flex-pack:center; 
+                justify-content:center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; 
+        position: absolute; 
+
+        /* Aqui modificamos el Ancho y alto */
+        width: /*Valor a modificar ->*/ 600px;
+        /* Aqui modificamos el Ancho y alto  */
+        /* min-height: 400px;  */
+        height: auto; 
+        border-radius: 5px;
+        /* aqui modificamoe el color de fondo con un valor Hexagesimal Ej, #000 */
+        background-color:/*Valor a modificar ->*/ #000;
+        /* aqui modificamoe el color de fondo con un valor Hexagesimal Ej, #000 */
+
+        -webkit-box-shadow: 0px 0px 10px #000;
+
+                box-shadow: 0px 0px 10px #000;
+        padding-bottom: 15px;
+        overflow: hidden;
+    }
+    
+    .encabezado_formulario
+    { 
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        min-height: 15%;
+        height: auto; 
+        /* aqui modificamos el color de fondo del encabezado con un valor Hexagesimal Ej, #000 */
+        background-color: /*Valor a modificar ->*/#FFF;
+        /* aqui modificamos el color de fondo del encabezado con un valor Hexagesimal Ej, #000 */
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .titulo_formulario
+    {
+        width: 80%;
+        text-align: center; 
+        margin: 5px;
+        /* aqui modificamos el color del titulo con un valor Hexagesimal Ej, #000 */
+        color: /*Valor a modificar ->*/green;
+        /* aqui modificamos el color del titulo con un valor Hexagesimal Ej, #000 */
+
+        /* aqui modificamos el tamano del titulo con un valor Hexagesimal Ej, #000 */
+        font-size:/*Valor a modificar ->*/ 25px; 
+        /* aqui modificamos el tamano del titulo con un valor Hexagesimal Ej, #000 */
+
+        font-family: inherit;
+        font-weight:bold ;
+    }
+    .subtitulo_formulario
+    {
+        width: 80%;
+        text-align: center; 
+        margin: 5px;
+        /* aqui modificamos el color del subtitulo con un valor Hexagesimal Ej, #000 */
+        color: /*Valor a modificar ->*/#000;
+        /* aqui modificamos el color del subtitulo con un valor Hexagesimal Ej, #000 */
+
+        /* aqui modificamos el tamano del subtitulo con un valor Hexagesimal Ej, #000 */
+        font-size:/*Valor a modificar ->*/ 20px; 
+        /* aqui modificamos el tamano del subtitulo con un valor Hexagesimal Ej, #000 */
+        font-family: inherit;
+    }
+
+    .informacion_principal_formulario
+    {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: 80%;
+        min-height: 65%;
+        height: inherit; 
+        -webkit-box-pack: center; 
+            -ms-flex-pack: center; 
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .pie_principal_formulario
+    {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; 
+        width: 80%;
+        height: 20%; 
+        justify-self: flex-end;
+    }
+    .texto_pie_formulario
+    {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        width: 100%;
+        text-align: justify; 
+        /* margin-top: 15px; */
+        margin: 10px;
+        /* aqui modificamos el color del texto del pie con un valor Hexagesimal Ej, #000 */
+        color: /*Valor a modificar ->*/#FFF;
+        /* aqui modificamos el color del texto del pie con un valor Hexagesimal Ej, #000 */
+
+        /* aqui modificamos el tamano del texto del pie con un valor Hexagesimal Ej, #000 */
+        font-size:/*Valor a modificar ->*/ 12px;
+        /* aqui modificamos el tamano del texto del pie con un valor Hexagesimal Ej, #000 */
+        font-family: inherit;
+    }
+    .titulo_widget_formulario
+    { 
+        color:#FFF;
+    }
+    .color_form
+    {
+        color: #FFF;
+    }
+    .menu_ham
+    {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        width: auto;
+        height: auto;
+    }
+    
+    .st0{display:inline;}
+    .st1{fill:none;stroke:#000000;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+    .st2{display:none;}
+
+    .boton_formulario
+    {
+        width: 100%;
+        /* height: 35px; */
+        background-color: green;
+        border: none;
+        border-radius: 5px;
+        /* padding: 10px; */
+        padding: 5px;
+    }
+
+    .input_formulario
+    {
+        width: 97%;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #000;
+        padding: 5px;
+    }
+    #banner_action_bottom
+    {
+        cursor: pointer;
+        /* aqui modificamos el ancho y alto */
+        width:/*Valor a modificar ->*/ 100%;
+        /* height:Valor a modificar -> 50px; */
+        /* aqui modificamos el ancho y alto */
+
+        background-color:/*Valor a modificar ->*/#000;
+        /* aqui modificamos el color de fondo del pie con un valor Hexagesimal Ej, #000 */
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        z-index: 90;
+    }
+
+    .texto_banner
+    {
+        /* aqui modificamos el color  y tamano de letra de el banner con un valor Hexagesimal Ej, #000 */ 
+        color: /*Valor a modificar ->*/ #FFF;
+        font-size:  /*Valor a modificar ->*/ 20px;
+        /* aqui modificamos el color  y tamano de letra de el banner con un valor Hexagesimal Ej, #000 */ 
+        font-family: inherit;
+        margin: 0;
+    }
+    .frame_video
+    {
+        width: 500px;
+        height: 381px;
+    }
+    .form_group
+    {
+        padding: 0px;
+    }
+    .p_contenedor_input
+    {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .subscribe-embedded-form {width: 80%; color: #333; background: transparent;}
+    .subscribe-embedded-form label {color: #555}
+
+
+    @media screen and (max-width: 600px) {
+        .formulario_informacion{width: 80%;}
+        .frame_video
+        {
+            width: 400px;
+            height: 181px;
+        }
+    } 
+    @media screen and (max-width: 400px) {
+        /* .formulario_informacion{width: 80%;} */
+        .frame_video
+        {
+            width: 100%;
+            /* height: 100%; */
+        }
+    }  
+    </style>
+    
+    
+
+    <script>
+        function isVertical() {
+            if(window.screen.width < window.screen.height) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+
+var check_video_completo = true;
+        function abrir_pantalla_completa(event)
+        {
+            // console.log(url_iframe)
+            // console.log(url_iframe_script)
+            console.log(event.target.parentNode.children[0].children[0])
+            let source = event.target.parentNode.children[0].children[0].src;
+            let init_video_width
+            let init_video_height
+
+            if(isVertical())
+            {
+                console.log("es vertical");
+                 init_video_width = window.screen.width-(window.screen.width*0.05);
+                 init_video_height = Math.ceil(init_video_width*0.5625);
+            }
+            else
+            {
+                console.log("es horizontal");
+                init_video_height = window.screen.height-(window.screen.height*0.27);
+                init_video_width = Math.ceil(init_video_height*1.77);  
+            }
+            console.log(init_video_width)
+            console.log(init_video_height)
+            
+            let contenedor_video_completo = document.createElement("div");
+            contenedor_video_completo.setAttribute("class","contenedor_video_completo");
+            contenedor_video_completo.setAttribute("id","contenedor_video_completo");
+        
+            let cerrar_video = document.createElement("div");
+            cerrar_video.setAttribute("style","width:100%;height:5%;");
+            let texto_cerrar_video = document.createElement("p" );
+            texto_cerrar_video.setAttribute("style","cursor:pointer;color:#fff;font-size:10px;text-align:end;margin:5px;");
+            texto_cerrar_video.setAttribute("onclick","cerrar_video()");
+            cerrar_video.appendChild(texto_cerrar_video);
+            texto_cerrar_video.innerHTML = "Cerrar";
+
+            let video_formulario = document.createElement("div");
+            video_formulario.setAttribute("style","display:flex;justify-content:center; align-items:center;flex-direction:column; width:100%;height:95%;");
+
+            let video_iframe = document.createElement("iframe");
+            video_iframe.setAttribute("src",source);
+            video_iframe.setAttribute("class","_vs_ictr_player");
+            video_iframe.setAttribute("frameborder","0");
+            video_iframe.setAttribute("allowfullscreen","");
+            // video_iframe.setAttribute("allow","autoplay; encrypted-media");
+            // obtener ancho de monitor que funcione en todos los navegadores       
+            // console.log(ancho_monitor);
+            video_formulario.appendChild(video_iframe);
+
+            video_iframe.setAttribute("width",init_video_width);
+            video_iframe.setAttribute("height",init_video_height);
+            // video_iframe.setAttribute("onload","cargar_medidas(event);")
+            // let script_video = document.createElement("script");
+            // script_video.setAttribute("src",url_iframe_script);
+            // contenedor_video_completo.appendChild(script_video);
+            // video_form.appendChild(video_iframe);
+
+            contenedor_video_completo.appendChild(cerrar_video);
+            contenedor_video_completo.appendChild(video_formulario);
+
+            document.body.appendChild(contenedor_video_completo);
+            // document.querySelector(".menu_push_form").click();
+        }
+
+        // funcion para verificar si es un ipad
+
+        function isIpad() {
+            if( navigator.userAgent.match(/iPad/i)
+            ){
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+                function isMobile() {
+            if( navigator.userAgent.match(/Android/i)
+            || navigator.userAgent.match(/webOS/i)
+            || navigator.userAgent.match(/iPhone/i)
+            || navigator.userAgent.match(/iPad/i)
+            || navigator.userAgent.match(/iPod/i)
+            || navigator.userAgent.match(/BlackBerry/i)
+            || navigator.userAgent.match(/Windows Phone/i)
+            || navigator.userAgent.match(/Opera Mini/i)
+            || navigator.userAgent.match(/IEMobile/i)
+            || navigator.userAgent.match(/Mobile/i)
+            || navigator.userAgent.match(/Windows Mobile/i)
+            || navigator.userAgent.match(/Windows CE/i)
+            || navigator.userAgent.match(/webOS/i)  
+            || navigator.userAgent.match(/Opera Mobi/i)
+            || navigator.userAgent.match(/MIDP/i)
+            || navigator.userAgent.match(/NOKIA/i)
+
+            ){
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+  
+        var check_etiqueta_accion=true
+        // funcion para crear un elemento div que tenga propiedades position fixed left y bottom de cero
+        function create_footer(objeto) {
+
+            let mensaje = objeto.text_footer
+            let estilos = objeto.style_footer
+            let estilos_texto = objeto.style_text
+            let colpaso = objeto.responsive_width
+            let tamano_movil = objeto.movil_size
+            let tamano_web = objeto.web_size
+            let view = objeto.open_to
+            let data_form = objeto.data_form
+            
+            // let accion = objeto.click_action
+
+            if(check_etiqueta_accion)
+            {
+                var div_elemento = document.createElement("div");
+                div_elemento.setAttribute("id", "banner_action_bottom");
+                div_elemento.setAttribute("style", estilos);
+
+                if(data_form=="no")
+                {
+                    div_elemento.setAttribute("onclick", "");
+                }
+                else
+                {
+                    div_elemento.onclick=function(){
+                        crear_push(objeto.data_form)
+                    }
+                }
+
+                let media_query = window.matchMedia("(max-width: "+colpaso+"px)");
+                if(media_query.matches)
+                {
+                    console.log("es mayor a "+colpaso+"px");
+                    let cadena_query = "height: "+tamano_movil+"px;"+estilos;
+                    div_elemento.setAttribute("style", cadena_query);
+                }
+                else
+                {
+                    console.log("es menor a "+colpaso+"px");
+                    let cadena_query = "height: "+tamano_web+"px;"+estilos;
+                    div_elemento.setAttribute("style", cadena_query);
+                }
+
+                var texto_banner = document.createElement("p");
+                texto_banner.setAttribute("class", "texto_banner");
+                texto_banner.setAttribute("style", estilos_texto);
+                texto_banner.innerHTML = mensaje;
+
+                div_elemento.appendChild(texto_banner);
+
+                // let este_colapso = w
+
+                // if(porcentaje_alto==view)
+                // {
+                    window.onscroll = function() {
+                        let scroll_footer = document.documentElement.scrollTop || document.body.scrollTop;
+                        let height_footer = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                        let porcentaje = (scroll_footer / height_footer) * 100;
+                        porcentaje = Math.ceil(porcentaje);
+                        if(porcentaje>=view)
+                        {
+                            // document.body.appendChild(div_elemento);
+                            console.log("es igual a "+view+"px");
+                            document.body.appendChild(div_elemento);
+                            check_etiqueta_accion=false
+                        }
+                        // else
+                        // {
+                        //     // document.body.removeChild(div_elemento);
+                        // }
+                    }
+
+
+                // }
+            }
+        }
+        // var crear_push = (function (event) {
+
+            var ancho_monitor
+            var alto_monitor
+            var orientacion
+            var cadena_estilos_video
+            var url_iframe
+            var url_iframe_script 
+
+            function crear_push(objeto){
+            // preventDefault();
+                var type
+                var scroll_screen
+
+
+                var type
+                var form_width
+                var form_background_color
+                var title_text_header
+                var subtitulo_encabezado
+                var titulo_formulario
+                var boton_formulario
+                var pie_pagina
+                var init_video_width
+                var init_video_height
+                var relative_width
+                var relative_height
+                var aparecer_elemento
+
+                    
+            // 'use strict';
+            // var Constructor = function (objeto) {
+
+                type = objeto.type;
+                if(type=="video-transparente")
+                {
+                    let check_scroll= true
+                    console.log("video transparente");
+                    if(objeto.show_at==false)
+                    {
+                        console.log("Pasoo sin scroll");
+                        var vpPlayer = new VpPlayer({
+                                        embedId: objeto.id_video
+                                    });  
+                                    check_scroll=false;
+                    }
+                    else
+                    {
+                        console.log("Pasoo con scroll");
+                        window.onscroll = function() 
+                        {
+                            // event.preventDefault();
+                            // if(window.pageYOffset > objeto.show_at)
+                            // {
+                            //     var vpPlayer = new VpPlayer({
+                            //         embedId: objeto.id_video
+                            //     });
+                            //     check_scroll=false;
+                            // }
+                            let scroll = document.documentElement.scrollTop || document.body.scrollTop;
+                            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                            let porcentaje = (scroll / height) * 100;
+                            porcentaje = Math.ceil(porcentaje);
+                            // console.log(porcentaje);
+                            scroll_screen = porcentaje;
+
+                            
+                            if(porcentaje>=objeto.show_at)
+                            {
+                                if(check_scroll)
+                                {
+                                    var vpPlayer = new VpPlayer({
+                                        embedId: objeto.id_video
+                                    });  
+                                    console.log(vpPlayer);
+                                    check_scroll=false;
+                                }
+                            }
+                        } 
+                    }
+                                  
+                }
+                if(type=="video" || type=="form")
+                {
+                    var check_formulario= true
+
+                    type = objeto.type
+                    title_text_header = objeto.title_text_header
+                    subtitulo_encabezado = objeto.subtitle_text_header
+                    titulo_form = objeto.titulo_form
+                    boton_formulario = objeto.button_text_form
+                    pie_pagina = objeto.footer
+                    url_action = objeto.url_action
+                    redirect_url = objeto.redirect_url
+                    ancho_monitor=window.screen.width 
+                    alto_monitor=window.screen.height
+                    orientacion=window.screen.orientation.type
+                    aparecer_elemento = objeto.show_at
+                    // console.log("paso")
+                    // console.log(ancho_monitor)
+                    // console.log(alto_monitor)
+                    // console.log(orientacion)
+
+                    if(isMobile())
+                    {
+                        if(ancho_monitor>alto_monitor)
+                        {
+                            console.log('horizontal')
+                            form_width= ancho_monitor*0.8   
+                            form_height= alto_monitor*0.8
+
+                            cadena_estilos_video =form_width-100
+                            console.log(cadena_estilos_video)
+                            init_video_width=cadena_estilos_video
+                            init_video_height=Math.ceil(init_video_width*.562)
+                            // init_video_height=form_width*.70
+                            // init_video_width=Math.ceil(init_video_height*.562)
+                            // console.log(Math.ceil(ancho_monitor*.90))
+                            // form_width = objeto.form_width = ancho_monitor*.90
+                            // cadena_estilos_video=objeto.form_width-100
+                            
+                            // init_video_width = cadena_estilos_video
+                            // init_video_height = Math.ceil(init_video_width*.562)
+                        }
+                        if(ancho_monitor<alto_monitor)
+                        {
+                            console.log('vertical')
+                            form_width= objeto.form_width
+                            // form_height= alto_monitor*0.8
+
+                            cadena_estilos_video =form_width-100
+                            init_video_width=cadena_estilos_video
+                            init_video_height=Math.ceil(init_video_width*.562)
+                        }
+                    
+                    }
+                    else
+                    {
+                        form_width= objeto.form_width
+                        cadena_estilos_video =form_width-100
+                        init_video_width=cadena_estilos_video
+                        init_video_height=Math.ceil(init_video_width*.562)
+                        // if(ancho_monitor>alto_monitor)
+                        // {
+                        //     console.log('horizontal')
+                        //     form_width= ancho_monitor*0.8      
+                        //     form_height= alto_monitor*0.8
+                        //     console.log(form_width)
+                        //     console.log(form_height)
+
+                        //     cadena_estilos_video =form_width-100
+                        //     console.log(cadena_estilos_video)
+                        //     init_video_width=cadena_estilos_video
+                        //     init_video_height=Math.ceil(init_video_width*.562)
+                        //     // init_video_height=form_width*.70
+                        //     // init_video_width=Math.ceil(init_video_height*.562)
+                        //     // console.log(Math.ceil(ancho_monitor*.90))
+                        //     // form_width = objeto.form_width = ancho_monitor*.90
+                        //     // cadena_estilos_video=objeto.form_width-100
+                            
+                        //     // init_video_width = cadena_estilos_video
+                        //     // init_video_height = Math.ceil(init_video_width*.562)
+
+                        // }
+                        // if(ancho_monitor<alto_monitor)
+                        // {
+                        //     console.log('vertical')
+                        //     form_width= objeto.form_width
+                        //     // form_height= alto_monitor*0.8
+
+                        //     cadena_estilos_video =form_width-100
+                        //     init_video_width=cadena_estilos_video
+                        //     init_video_height=Math.ceil(init_video_width*.562)
+                        // }
+                    }
+
+                    // if(orientacion==" landscape-secondary")
+                    
+
+                    // form_width = objeto.form_width
+            
+                    form_background_color = objeto.form_background_color
+                    // form_height = objeto.form_height
+                    // video_height:"281"
+
+
+                    if(check_formulario)
+                    {   
+                        let elemento_general = document.createElement("div");
+                        // elemento_general.setAttribute("id","formulario_push");
+                        elemento_general.setAttribute("class","contenedor_formulario");
+                        // document.body.appendChild(elemento_general);
+                        let contenedor_division = document.createElement("div");
+                        contenedor_division.setAttribute("class","contenedor_division");
+                        // elemento_general.appendChild(contenedor_division);
+                        let fondo_c_formulario = document.createElement("div");
+                        fondo_c_formulario.setAttribute("class","fondo_c_formulario");
+                        // contenedor_division.appendChild(fondo_c_formulario);
+
+
+                        let formulario_informacion = document.createElement("div");
+                        formulario_informacion.setAttribute("class","formulario_informacion");
+                        if(ancho_monitor<objeto.form_width)
+                        {
+                            let cadena_estilos= "width:80%;background:"+form_background_color+";" 
+                            formulario_informacion.setAttribute("style",cadena_estilos);
+                        }
+                        else
+                        {
+                            let cadena_estilos= "width:"+objeto.form_width+"px;background:"+form_background_color+";" 
+                            formulario_informacion.setAttribute("style",cadena_estilos);
+                        }
+                        
+                        // formulario_informacion.setAttribute("width",objeto.form_width+"px");
+
+                        let encabezado_formulario = document.createElement("div");
+                        encabezado_formulario.setAttribute("class","encabezado_formulario");
+                        encabezado_formulario.setAttribute("style",objeto.style_header);
+
+                        let titulo_formulario = document.createElement("h3");
+                        titulo_formulario.setAttribute("class","titulo_formulario");
+                        titulo_formulario.setAttribute("style",objeto.style_title);
+                        titulo_formulario.innerHTML = title_text_header;
+
+
+                        let subtitulo_formulario = document.createElement("h4");
+                        subtitulo_formulario.setAttribute("class","subtitulo_formulario");
+                        subtitulo_formulario.setAttribute("style",objeto.style_subtitle);
+                        subtitulo_formulario.innerHTML = subtitulo_encabezado;
+
+                        let menu_ham = document.createElement("div");
+                        menu_ham.setAttribute("class","menu_ham");
+                        // menu_ham.setAttribute("id","");
+                        // menu_ham.setAttribute("onclick","cerrar(event)");
+                        menu_ham.onclick = function(event){
+                            let elemento_eliminado = event.target.parentNode.parentNode.parentNode.parentNode.parentNode
+                            elemento_eliminado.parentNode.removeChild(elemento_eliminado);
+                            // check_formulario=true
+                        }
+
+                        let img_svg = document.createElement("i");
+                        img_svg.setAttribute("class","bi bi-x-octagon");
+
+                        let texto_cerrar = document.createElement("p");
+                        texto_cerrar.setAttribute("class","color_form");
+                        texto_cerrar.setAttribute("style",objeto.style_text_close);
+                        texto_cerrar.innerHTML = objeto.text_close_header;
+                        
+                        menu_ham.appendChild(texto_cerrar);
+
+                        encabezado_formulario.appendChild(titulo_formulario);
+                        encabezado_formulario.appendChild(subtitulo_formulario);
+                        encabezado_formulario.appendChild(menu_ham);
+
+                        let informacion_principal_formulario = document.createElement("div");
+                        informacion_principal_formulario.setAttribute("class","informacion_principal_formulario");
+
+                        if(type=="form")
+                        {
+                            let subscribe_embedded_form = document.createElement("div");
+                            subscribe_embedded_form.setAttribute("class","subscribe-embedded-form");
+
+                            let color_form = document.createElement("h2");
+                            color_form.setAttribute("class","color_form");
+                            color_form.setAttribute("style",objeto.style_title_form);
+                            // console.log(titulo_formulario)
+                            color_form.innerHTML = objeto.calltoaction_form;
+                            let color_form_2 = document.createElement("h3");
+                            color_form_2.setAttribute("class","color_form");
+                            color_form_2.setAttribute("style",objeto.style_subtitle_form);
+                            let text_sm = document.createElement("p");
+                            text_sm.setAttribute("class"," color_form");
+                            text_sm.setAttribute("style",objeto.style_text_warning);
+                            let text_danger = document.createElement("span");
+                            text_danger.setAttribute("class","text_danger");
+                            text_danger.innerHTML = "*";
+                            text_sm.appendChild(text_danger);
+                            text_sm.innerHTML = objeto.text_warning_form;
+                    
+
+                            // seccion formulario
+
+                            let form_validate = document.createElement("form");
+                            form_validate.setAttribute("action",url_action);
+                            form_validate.setAttribute("method","POST");
+                            form_validate.setAttribute("class","form-validate-jqueryz");
+
+
+                            for(let [nombre,valor_p] of Object.entries(objeto.campos_formulario))
+                            {
+                                // let valor = objeto.campos_formulario[elemento_inputs]
+
+                                let form_group_email = document.createElement("div");
+                                form_group_email.setAttribute("class","form_group");
+                                form_group_email.setAttribute("style",objeto.style_container_input);
+                                // form_group_email.setAttribute("class","");
+
+                                let label = document.createElement("p");
+                                label.setAttribute("class","color_form");
+                                label.setAttribute("style",objeto.style_label_input);
+                                // label.setAttribute("style",);
+
+
+                                let nombre_reset = nombre.replaceAll("_", ' ');
+                                label.innerHTML = nombre_reset;
+                                let span = document.createElement("span");
+                                span.setAttribute("class","text-danger");
+                                span.innerHTML = "*";
+                                label.appendChild(span);
+                                form_group_email.appendChild(label);
+
+                                let input_email = document.createElement("input");
+
+                                // console.log(nombre+": ")
+
+                                for(let [nombre_2,valor_2] of Object.entries(valor_p))
+                                {   
+                                    input_email.setAttribute(nombre_2,valor_2);
+                                    // console.log("propiedad: "+nombre_2+" valor: "+valor_2)
+                                }
+                                form_group_email.appendChild(input_email);
+                                form_validate.appendChild(form_group_email);
+                            }
+
+
+
+                            let input_redirect = document.createElement("input");
+                            input_redirect.setAttribute("type","hidden");
+                            input_redirect.setAttribute("name","redirect_url");
+                            input_redirect.setAttribute("value",redirect_url);
+
+                            let form_button = document.createElement("div");
+                            form_button.setAttribute("class","form-button");
+                            let button = document.createElement("button");
+                            button.setAttribute("class","boton_formulario color_form");
+                            button.setAttribute("style",objeto.style_boton_form);
+                            button.innerHTML = boton_formulario;
+                            form_button.appendChild(button);
+
+                            // form_validate.appendChild(form_group_email);
+                            // form_validate.appendChild(form_group_nombre);
+                            form_validate.appendChild(input_redirect);
+                            form_validate.appendChild(form_button);
+
+                            subscribe_embedded_form.appendChild(color_form);
+                            subscribe_embedded_form.appendChild(color_form_2);
+                            subscribe_embedded_form.appendChild(text_sm);
+                            subscribe_embedded_form.appendChild(form_validate);
+
+                            informacion_principal_formulario.appendChild(subscribe_embedded_form);
+                        }           
+                        if(type=="video")
+                        {
+                            url_iframe = objeto.url_video;
+                            url_iframe_script = objeto.url_video_script;
+                            console.log(url_iframe_script)
+                            console.log(url_iframe)
+
+                            let video_form = document.createElement("div");
+                            video_form.setAttribute("class","video_form");
+                            let video_iframe = document.createElement("iframe");
+                            video_iframe.setAttribute("src",objeto.url_video);
+                            video_iframe.setAttribute("class","_vs_ictr_player");
+                            video_iframe.setAttribute("frameborder","0");
+                            video_iframe.setAttribute("allowfullscreen","");
+                            video_iframe.setAttribute("allow","*");
+                            // video_iframe.setAttribute("allow","autoplay; encrypted-media");
+                            // obtener ancho de monitor que funcione en todos los navegadores       
+                            // console.log(ancho_monitor);
+                            if(ancho_monitor>600)
+                            {
+                                video_iframe.setAttribute("width",init_video_width);
+                                video_iframe.setAttribute("height",init_video_height);
+                            }
+                            if(ancho_monitor<600  && ancho_monitor>400)
+                            {
+                                video_iframe.setAttribute("width","400");
+                                video_iframe.setAttribute("height","224.8");
+                            }
+                            if(ancho_monitor<400)
+                            {
+                                video_iframe.setAttribute("width","280");
+                                video_iframe.setAttribute("height","156.8");
+                            }
+                            
+                            let script_video = document.createElement("script");
+                                script_video.setAttribute("src",objeto.url_script_video);
+                                video_form.appendChild(video_iframe);
+                                informacion_principal_formulario.appendChild(video_form);
+                            
+                            
+                            // video_iframe.setAttribute("onload","cargar_medidas(event);")
+                            if(objeto.fullscreen)
+                            {
+                                let parrafo_pantalla_completa = document.createElement("p");
+                                parrafo_pantalla_completa.setAttribute("style","cursor:pointer;font-size:12px;color:#fff;text-align:center;margin-top:10px;");
+                                parrafo_pantalla_completa.setAttribute("onclick","abrir_pantalla_completa(event)");
+                                parrafo_pantalla_completa.innerHTML = "Pantalla completa";
+                                informacion_principal_formulario.appendChild(parrafo_pantalla_completa);
+                                
+                            }
+                        }  
+
+                        let pie_principal_formulario = document.createElement("div");
+                        pie_principal_formulario.setAttribute("class","pie_principal_formulario");
+
+                        let texto_pie_formulario = document.createElement("p");
+                        texto_pie_formulario.setAttribute("class","texto_pie_formulario");
+                        texto_pie_formulario.setAttribute("style",objeto.style_footer);
+                        texto_pie_formulario.innerHTML = pie_pagina
+
+                        pie_principal_formulario.appendChild(texto_pie_formulario);
+
+                        formulario_informacion.appendChild(encabezado_formulario);
+                        formulario_informacion.appendChild(informacion_principal_formulario);
+                        formulario_informacion.appendChild(pie_principal_formulario);
+
+                        elemento_general.appendChild(contenedor_division);
+                        contenedor_division.appendChild(fondo_c_formulario);
+                        contenedor_division.appendChild(formulario_informacion);
+
+
+                        if(!aparecer_elemento)
+                        {
+                            if(check_formulario)
+                            {
+                                document.body.appendChild(elemento_general);
+                                check_formulario=false;   
+                                console.log("se agrega el formulario");
+                                console.log(check_formulario)
+                            }
+
+                        }
+                        else
+                        {
+                            window.onscroll = function() {
+                                var scroll = document.documentElement.scrollTop || document.body.scrollTop;
+                                var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                                
+                                var porcentaje = (scroll / height) * 100;
+                                porcentaje = Math.ceil(porcentaje);
+
+
+                                if(porcentaje>=aparecer_elemento)
+                                {
+                                    console.log(scroll);
+                                    console.log(height);
+                                    console.log(porcentaje);
+
+                                    // document.body.appendChild(div_elemento);
+                                    // console.log("es igual a "+view+"px");
+                                    if(check_formulario)
+                                    {
+                                        document.body.appendChild(elemento_general);
+                                        check_formulario=false;   
+                                        console.log("se agrega el formulario");
+                                        console.log(check_formulario)
+                                    }
+                                }
+                                
+                            }         
+                        }    
+                    }
+
+                }
+                if(type=="video-piper")
+                {
+                    console.log("video pipper");
+
+                    var video_piper = objeto.data
+                    console.log(video_piper);
+                }
+                
+        }            
+            // var elemento = function (objeto) {
+            //     return new Constructor(objeto);
+            // };
+
+            // return elemento;
+        // }
+        // )();
+    </script>
+
+
+    <script>
+        crear_push({
+            show_at:20,
+            type:"video-transparente",
+            id_video:"zHqktWsJaY4v"
+        })
+        // crear_push({
+        //     show_at:false,
+        //     type:"video-piper",
+        //     data:{
+        //         product_id: "m819xasd",
+        //         video_share: "https://videofunnel.in/videofunnels/m819xasd/",
+        //         widgetType: "circle",
+        //         text: "CLIC AQUÍ PARA DESCUENTO (Espera 8s aprox....)",
+        //         backgroundColor: "#fbff00",
+        //         position: "left",
+        //         is_chat: "false",
+        //         is_chat_data: " ",
+        //         is_dissmiss: "false",
+        //         type: "videofunnel",
+        //         textColor: '#fff'
+        //         }
+        // })
+        // crear_push({
+        //     show_at:20,
+        //     type:"video",
+        //     form_width:"800",
+        //     form_background_color:"#000",
+        //     style_header:"background-color: #000;",
+        //     title_text_header:"¡VE ahora el video!",
+        //     style_title:"color: #fff;font-size: 20px;margin-top: 10px;margin-bottom: 10px;",
+        //     text_close_header:"X",
+        //     style_text_close:"color: #fff;font-size: 15px;padding-right:0px;padding-top:0px;",
+        //     subtitle_text_header:"¡Te esperamos en nuestra página web!",
+        //     style_subtitle:"color: #fff;font-size: 10px;margin-top: 7px;margin-bottom: 7px;",
+        //     fullscreen:false,
+        //     url_video:"https://swiftcdn6.global.ssl.fastly.net/projects/6140ddc1320a4/index.html?cb=19k9qary4iv60lrfq4lgw",
+        //     url_script_video:"https://vsplayer.global.ssl.fastly.net/player-wrapper-v4.js",
+        //     footer:"¡Gracias por tu interés! Te esperamos en nuestra página web!",
+        //     style_footer:"color:red; font-size:12px;"
+        // })
+        
+//         crear_push({
+//     show_at:100,
+//     type:"form",
+//     form_width:"500",
+//     form_background_color:"#000",
+//     style_header:"background-color: #fff;",
+//     title_text_header:"¡Gracias por tu interés!",
+//     style_title:"color: #000;font-size: 25px; margin-top:0px;",
+//     text_close_header:"x",
+//     style_text_close:"color: #000;font-size: 15px;padding-right:0px;padding-top:0px;",
+//     subtitle_text_header:"¡Te esperamos en nuestra página web!",
+//     style_subtitle:"color: #000;font-size: 12px;",
+//     calltoaction_form:"¡Suscribete ahora!",
+//     style_title_form:"color: #fff;font-size: 25px;margin-top:10px;margin-bottom:10px;",
+//     style_subtitle_form:"color: #000;font-size: 12px;margin-top:10px;margin-bottom:10px;",
+//     button_text_form:"click",
+//     style_boton_form:"width:97%; min-height:30px; background-color: #00FF00;color: #fff;font-size: 15px; margin:7px;",
+//     style_text_warning:"color: #fff;font-size: 10px;",
+//     text_warning_form:"Campos obligatorios!!!!! *",
+
+//     url_action:"https://app.mailermatic.io/lists/62113d236d162/embedded-form-subscribe-captcha",
+//     redirect_url:"https://www.josue-animations.com/trafficgeneratorgracias",
+
+//     style_container_input:"padding:7px;",
+//     style_label_input:"color: #fff;font-size: 15px;margin-bottom:10px;",
+//     campos_formulario:{
+//         Email:{
+//             type:"text",
+//             id:"EMAIL",
+//             name:"EMAIL",
+//             class:"input_formulario required email:rfc,filter",
+//             placeholder:"Escribir aqui",
+//             style:"height:25px;width:97%;"
+//         },
+//         First_Name:{
+//             type:"text",
+//             id:"FIRST_NAME",
+//             name:"FIRST_NAME",
+//             class:"input_formulario required",
+//             placeholder:"Escribir aqui",
+//             style:"height:25px;width:97%;"
+//         }
+//     },
+//     footer:"Texto cambiado",
+//     style_footer:"color:#fff; font-size:15px;"
+// });
+
+
+
+create_footer({
+        text_footer: "Haz clik aqui",
+        style_footer: "background-color:#000;",
+        style_text: "width:100%; color:#FFF;font-size:15px;text-align:start;padding:15px;",
+        responsive_width: 600,
+        movil_size: 40,
+        web_size: 80,
+        open_to: 100,
+        data_form:{
+            show_at:false,
+            type:"video",
+            form_width:"800",
+            form_background_color:"#000",
+            style_header:"background-color: #000;",
+            title_text_header:"¡VE ahora el video!",
+            style_title:"color: #fff;font-size: 20px;margin-top: 10px;margin-bottom: 10px;",
+            text_close_header:"X",
+            style_text_close:"color: #fff;font-size: 15px;padding-right:0px;padding-top:0px;",
+            subtitle_text_header:"¡Te esperamos en nuestra página web!",
+            style_subtitle:"color: #fff;font-size: 10px;margin-top: 7px;margin-bottom: 7px;",
+            fullscreen:true,
+            url_video:"https://swiftcdn6.global.ssl.fastly.net/projects/6140ddc1320a4/index.html?cb=19k9qary4iv60lrfq4lgw",
+            url_script_video:"https://vsplayer.global.ssl.fastly.net/player-wrapper-v4.js",
+            footer:"¡Gracias por tu interés! Te esperamos en nuestra página web!",
+            style_footer:"color:red; font-size:12px;"
+        }
+    });
+    </script>
+
+    
+    
+</body>
+</html>

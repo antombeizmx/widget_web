@@ -1,0 +1,166 @@
+    <script>
+
+window.onscroll = function() {
+        // escribir aqui el limite en porcentaje sin el %
+        var limite = 80
+        // escribir la clase empezando por un . y si es un id comenzarla con un #
+        // ejemplo:
+        var id_elemento = ".videopal-canvas-output"
+
+        var scroll = document.documentElement.scrollTop || document.body.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var porcentaje = (scroll / height) * 100;
+        porcentaje = Math.ceil(porcentaje);
+        // console.log(porcentaje);
+        if(porcentaje>=limite)
+        {   
+            // Texto pie de pagina
+            createDiv("Haz clik aqui",
+            // estilos del contnenedor del texto del pie de pagina
+            "background-color:#000;",
+            // estilos del texto del pie de pagina 
+            // para centrar el texto debemos elegir entre : text-align:center; o text-align:start o text-align:end;
+            "width:100%; color:#000;font-size:15px;text-align:start;padding:15px;",
+            // condiciones para el tamano del pie de pagina
+            600,
+            // tamano movil alto del pie de pagina (px)
+            80,
+            // tamano web alto del pie de pagina (px)
+            160,
+            );
+        }
+    }
+
+**************************
+vista formulario de video
+**************************
+
+
+    function abrir_form()
+    {
+
+
+        crear_push({
+        // tipo de formulario
+        type:"video",
+        // estilos del formulario en pixeles
+        form_width:"800",
+        form_background_color:"#000",
+        // estilos del encabezado
+
+        style_header:"background-color: #000;",
+        // texto del titulo del encabezado
+        title_text_header:"¡VE ahora el video!",
+        // estilos para el titulo del encabezado
+        style_title:"color: #fff;font-size: 20px;margin-top: 10px;margin-bottom: 10px;",
+        // texto para el boton cerrar del encabezado
+        text_close_header:"X",
+        // estilos para el texto cerrar del encabezado
+        style_text_close:"color: #fff;font-size: 15px;padding-right:0px;padding-top:0px;",
+        // estilos para el texto del subtitulo del encabezado
+        subtitle_text_header:"¡Te esperamos en nuestra página web!",
+        // estilos para el subtitulo del encabezado
+        style_subtitle:"color: #fff;font-size: 10px;margin-top: 7px;margin-bottom: 7px;",
+
+        // habilitar pantalla completa alternar entre true o false
+        fullscreen:true,
+
+        // direccion de la etiqueta iframe del video
+        url_video:"https://swiftcdn6.global.ssl.fastly.net/projects/6140ddc1320a4/index.html?cb=19k9qary4iv60lrfq4lgw",
+        // direccion de la etiqueta script del video propiedad "src"
+        url_script_video:"https://vsplayer.global.ssl.fastly.net/player-wrapper-v4.js",
+
+        // texto del pie de formulario
+        footer:"¡Gracias por tu interés! Te esperamos en nuestra página web!",
+        // estilos para el pie de formulario
+        style_footer:"color:red; font-size:12px;"
+});
+
+**************************
+vista formulario de video
+**************************
+
+
+**************************
+vista formulario de entradas de texto
+**************************
+
+
+crear_push({
+        // tipo de formulario
+        type:"form",
+        // estilos del formulario en pixeles
+        form_width:"500",
+        form_background_color:"#000",
+        // estilos del encabezado
+        style_header:"background-color: #fff;",
+        // texto del titulo del encabezado
+        title_text_header:"¡Gracias por tu interés!",
+        // estilos para el titulo del encabezado
+        style_title:"color: #000;font-size: 25px; margin-top:0px;",
+        // texto para el boton cerrar del encabezado
+        text_close_header:"x",
+        // estilos para el texto cerrar del encabezado
+        style_text_close:"color: #000;font-size: 15px;padding-right:0px;padding-top:0px;",
+        // estilos para el texto del subtitulo del encabezado
+        subtitle_text_header:"¡Te esperamos en nuestra página web!",
+        // estilos para el subtitulo del encabezado
+        style_subtitle:"color: #000;font-size: 12px;",
+        // texto para Call to action del formulario
+        calltoaction_form:"¡Suscribete ahora!",
+        // estilos para el texto del boton call to action
+        style_title_form:"color: #fff;font-size: 25px;margin-top:10px;margin-bottom:10px;",
+        // estilos para el sibtitulo del formulario
+        style_subtitle_form:"color: #000;font-size: 12px;margin-top:10px;margin-bottom:10px;",
+        // estilos para el boton call to action
+        button_text_form:"subscribete",
+        // estilos para el boton call to action
+        style_boton_form:"width:97%; min-height:30px; background-color: #00FF00;color: #fff;font-size: 15px; margin:7px;",
+        // estilos para advertencia de campos
+        style_text_warning:"color: #fff;font-size: 10px;",
+        //  texto para advertencia de campos
+        text_warning_form:"Campos obligatorios *",
+        //  direccion de action de formulario
+
+        buscar etiqueta form y encontrar la propiedad "action"
+        // url_action:"https://app.mailermatic.io/lists/621152653ea40/embedded-form-subscribe-captcha",
+        url_action:"https://app.mailermatic.io/lists/62113d236d162/embedded-form-subscribe-captcha",
+        //  redireccion direccion de action de formulario
+        // se debe buscar un input de tipo hidden y se debe tomar la propiedad "value" y colocar entre las comillas que tenga la clave redirect_url
+        redirect_url:"https://www.josue-animations.com/trafficgeneratorgracias",
+        // Para crear entradas de texto es sustituir los espacion por una barra baja _ 
+        // se puede usar letra capital y minuscula
+
+        
+        // cambiar espacio entre contenedores de entrada de texto
+        style_container_input:"padding:7px;",
+        // estilos para el etiqueta de los campos
+        style_label_input:"color: #fff;font-size: 15px;margin-bottom:10px;",
+        campos_formulario:{
+            Email:{
+                type:"text",
+                // el "id" y el "name" deben ser los mismos que aparecen en el widget
+                id:"EMAIL",
+                name:"EMAIL",
+                // si es un correo agregar email:rfc,filter
+                class:"input_formulario required email:rfc,filter",
+                placeholder:"Escribir aqui",
+                style:"height:25px;width:97%;"
+            },
+            First_Name:{
+                type:"text",
+                // el "id" y el "name" deben ser los mismos que aparecen en el widget
+                id:"FIRST_NAME",
+                name:"FIRST_NAME",
+                class:"input_formulario required",
+                placeholder:"Escribir aqui",
+                style:"height:25px;width:97%;"
+            }
+        },
+        // texto del pie de formulario
+        footer:"Texto cambiado",
+        // estilos para el pie de formulario
+        style_footer:"color:#fff; font-size:15px;"
+    });
+    }
+    </script>
