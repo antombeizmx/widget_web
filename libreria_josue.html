@@ -10,7 +10,8 @@
     <link href="https://app.mailermatic.io/core/css/embedded.css" rel="stylesheet" type="text/css">
     <link href="https://app.mailermatic.io/core/css/google-font-icon.css" rel="stylesheet">
     <link href="https://app.mailermatic.io/core/css/app.css?v=4.0.24-p213" rel="stylesheet" type="text/css">
-    <script src="https://sitecloudcentral.com/js/vp_player.min.js?v=1.1.29" data-cfasync="false" type="text/javascript">
+    
+    <!-- <script src="https://sitecloudcentral.com/js/vp_player.min.js?v=1.1.29" data-cfasync="false" type="text/javascript"> -->
     </script>
        <!-- <div id="vf_root"></div>
        <script>
@@ -429,7 +430,37 @@ var check_video_completo = true;
                 return false;
             }
         }
-  
+        
+        var scroll_screen
+        var height_screen
+        var porcentaje_pantalla
+
+        window.onscroll = function() {
+            scroll_screen= document.documentElement.scrollTop || document.body.scrollTop;
+            height_screen = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            
+            porcentaje_pantalla = (scroll_screen/ height_screen) * 100;
+            porcentaje_pantalla = Math.ceil(porcentaje_pantalla);
+            // console.log(porcentaje_pantalla);
+            if(widgets_agregados.length>0)
+            {
+                // console.log(widgets_agregados)
+                for(let objeto of widgets_agregados)
+                {
+                    if(objeto.check_view)
+                    {
+                       if(objeto.show<=porcentaje_pantalla || objeto.show==false)
+                       {
+                           console.log(objeto.show,porcentaje_pantalla,objeto.check_view)
+                           document.body.appendChild(objeto.elemento);
+                           objeto.check_view = false;
+                       }
+                    }
+                }
+            }            
+        } 
+
+
         var check_etiqueta_accion=true
         // funcion para crear un elemento div que tenga propiedades position fixed left y bottom de cero
         function create_footer(objeto) {
@@ -440,7 +471,7 @@ var check_video_completo = true;
             let colpaso = objeto.responsive_width
             let tamano_movil = objeto.movil_size
             let tamano_web = objeto.web_size
-            let view = objeto.open_to
+            let view = objeto.show_at
             let data_form = objeto.data_form
             
             // let accion = objeto.click_action
@@ -484,28 +515,31 @@ var check_video_completo = true;
                 div_elemento.appendChild(texto_banner);
 
                 // let este_colapso = w
+                widgets_agregados.push({
+                    elemento: div_elemento,
+                    show: view,
+                    check_view: true
+                });
 
                 // if(porcentaje_alto==view)
                 // {
-                    window.onscroll = function() {
-                        let scroll_footer = document.documentElement.scrollTop || document.body.scrollTop;
-                        let height_footer = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                        let porcentaje = (scroll_footer / height_footer) * 100;
-                        porcentaje = Math.ceil(porcentaje);
-                        if(porcentaje>=view)
-                        {
-                            // document.body.appendChild(div_elemento);
-                            console.log("es igual a "+view+"px");
-                            document.body.appendChild(div_elemento);
-                            check_etiqueta_accion=false
-                        }
-                        // else
-                        // {
-                        //     // document.body.removeChild(div_elemento);
-                        // }
-                    }
-
-
+                    // window.onscroll = function() {
+                    //     let scroll_footer = document.documentElement.scrollTop || document.body.scrollTop;
+                    //     let height_footer = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    //     let porcentaje = (scroll_footer / height_footer) * 100;
+                    //     porcentaje = Math.ceil(porcentaje);
+                    //     if(porcentaje>=view)
+                    //     {
+                    //         // document.body.appendChild(div_elemento);
+                    //         console.log("es igual a "+view+"px");
+                    //         document.body.appendChild(div_elemento);
+                    //         check_etiqueta_accion=false
+                    //     }
+                    //     // else
+                    //     // {
+                    //     //     // document.body.removeChild(div_elemento);
+                    //     // }
+                    // }
                 // }
             }
         }
@@ -517,6 +551,7 @@ var check_video_completo = true;
             var cadena_estilos_video
             var url_iframe
             var url_iframe_script 
+            var widgets_agregados = []
 
             function crear_push(objeto){
             // preventDefault();
@@ -550,44 +585,42 @@ var check_video_completo = true;
                     if(objeto.show_at==false)
                     {
                         console.log("Pasoo sin scroll");
-                        var vpPlayer = new VpPlayer({
+
+                        let etiqueta_script = document.createElement("script");
+                        etiqueta_script.setAttribute("src", "https://sitecloudcentral.com/js/vp_player.min.js?v=1.1.29");
+                        etiqueta_script.setAttribute("type", "text/javascript");
+                        etiqueta_script.setAttribute("data-cfasync", "false");
+                        etiqueta_script.onload= function()
+                        {
+                            var vpPlayer = new VpPlayer({
                                         embedId: objeto.id_video
                                     });  
                                     check_scroll=false;
+                        }
+                        document.body.appendChild(etiqueta_script);
+                        
                     }
                     else
                     {
-                        console.log("Pasoo con scroll");
-                        window.onscroll = function() 
+                        let etiqueta_script = document.createElement("script");
+                        etiqueta_script.setAttribute("src", "https://sitecloudcentral.com/js/vp_player.min.js?v=1.1.29");
+                        etiqueta_script.setAttribute("type", "text/javascript");
+                        etiqueta_script.setAttribute("data-cfasync", "false");
+                        etiqueta_script.onload= function()
                         {
-                            // event.preventDefault();
-                            // if(window.pageYOffset > objeto.show_at)
-                            // {
-                            //     var vpPlayer = new VpPlayer({
-                            //         embedId: objeto.id_video
-                            //     });
-                            //     check_scroll=false;
-                            // }
-                            let scroll = document.documentElement.scrollTop || document.body.scrollTop;
-                            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                            let porcentaje = (scroll / height) * 100;
-                            porcentaje = Math.ceil(porcentaje);
-                            // console.log(porcentaje);
-                            scroll_screen = porcentaje;
-
-                            
-                            if(porcentaje>=objeto.show_at)
-                            {
-                                if(check_scroll)
-                                {
-                                    var vpPlayer = new VpPlayer({
+                            var vpPlayer = new VpPlayer({
                                         embedId: objeto.id_video
                                     });  
-                                    console.log(vpPlayer);
-                                    check_scroll=false;
-                                }
-                            }
-                        } 
+                                    // check_scroll=false;
+                        }
+
+                        console.log("Pasoo con scroll");
+                        let elemento = {
+                                        show: objeto.show_at, 
+                                        elemento:etiqueta_script,
+                                        check_view:true
+                                    }
+                        widgets_agregados.push(elemento)
                     }
                                   
                 }
@@ -607,10 +640,7 @@ var check_video_completo = true;
                     alto_monitor=window.screen.height
                     orientacion=window.screen.orientation.type
                     aparecer_elemento = objeto.show_at
-                    // console.log("paso")
-                    // console.log(ancho_monitor)
-                    // console.log(alto_monitor)
-                    // console.log(orientacion)
+
 
                     if(isMobile())
                     {
@@ -651,6 +681,8 @@ var check_video_completo = true;
                         cadena_estilos_video =form_width-100
                         init_video_width=cadena_estilos_video
                         init_video_height=Math.ceil(init_video_width*.562)
+
+
                         // if(ancho_monitor>alto_monitor)
                         // {
                         //     console.log('horizontal')
@@ -905,10 +937,10 @@ var check_video_completo = true;
                             {
                                 let parrafo_pantalla_completa = document.createElement("p");
                                 parrafo_pantalla_completa.setAttribute("style","cursor:pointer;font-size:12px;color:#fff;text-align:center;margin-top:10px;");
-                                parrafo_pantalla_completa.setAttribute("onclick","abrir_pantalla_completa(event)");
+                                // parrafo_pantalla_completa.setAttribute("onclick","abrir_pantalla_completa(event)");
+                                parrafo_pantalla_completa.setAttribute("onclick","toFull('._vs_ictr_player')");
                                 parrafo_pantalla_completa.innerHTML = "Pantalla completa";
                                 informacion_principal_formulario.appendChild(parrafo_pantalla_completa);
-                                
                             }
                         }  
 
@@ -944,32 +976,11 @@ var check_video_completo = true;
                         }
                         else
                         {
-                            window.onscroll = function() {
-                                var scroll = document.documentElement.scrollTop || document.body.scrollTop;
-                                var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                                
-                                var porcentaje = (scroll / height) * 100;
-                                porcentaje = Math.ceil(porcentaje);
-
-
-                                if(porcentaje>=aparecer_elemento)
-                                {
-                                    console.log(scroll);
-                                    console.log(height);
-                                    console.log(porcentaje);
-
-                                    // document.body.appendChild(div_elemento);
-                                    // console.log("es igual a "+view+"px");
-                                    if(check_formulario)
-                                    {
-                                        document.body.appendChild(elemento_general);
-                                        check_formulario=false;   
-                                        console.log("se agrega el formulario");
-                                        console.log(check_formulario)
-                                    }
-                                }
-                                
-                            }         
+                            widgets_agregados.push({
+                                elemento:elemento_general,
+                                check_view:true,
+                                show:aparecer_elemento
+                            });        
                         }    
                     }
 
@@ -977,12 +988,75 @@ var check_video_completo = true;
                 if(type=="video-piper")
                 {
                     console.log("video pipper");
+                    let elemento_vf_root=document.createElement("div");
+                    elemento_vf_root.setAttribute("id","vf_root");
+                    // elemento_script_vf.appendChild(elemento_vf_root);
+                    let elemento_script_vf=document.createElement("script");
+                    elemento_script_vf.setAttribute("src",objeto.url_script_video);
+                    elemento_script_vf.onload = function()
+                    {
+                        var video_piper = objeto.data
+                        console.log(video_piper);
+                    }
+                    document.body.appendChild(elemento_vf_root);
+                    document.body.appendChild(elemento_script_vf);
+                    // console.log(video_piper);
+                }
+                if(type=="video-position")
+                {
+                    console.log("video position");
+                    let video_form = document.createElement("div");
+                    video_form.setAttribute("class","video_form");
+                    video_form.setAttribute("style","width:auto;height:auto;");
+                    
+                    let video_iframe = document.createElement("iframe");
+                    video_iframe.setAttribute("src",objeto.url_video);
+                    video_iframe.setAttribute("class","_vs_ictr_player");
+                    video_iframe.setAttribute("frameborder","0");
+                    video_iframe.setAttribute("allowfullscreen","");
+                    video_iframe.setAttribute("allow","*");
+                    video_iframe.setAttribute("width","auto");
+                    video_iframe.setAttribute("height","auto");
 
-                    var video_piper = objeto.data
-                    console.log(video_piper);
+                    if(objeto.fullscreen)
+                    {
+                        let parrafo_pantalla_completa = document.createElement("p");
+                        parrafo_pantalla_completa.setAttribute("style","cursor:pointer;font-size:12px;color:#fff;text-align:center;margin-top:10px;");
+                        // parrafo_pantalla_completa.setAttribute("onclick","abrir_pantalla_completa(event)");
+                        parrafo_pantalla_completa.setAttribute("onclick","toFull('._vs_ictr_player')");
+                        parrafo_pantalla_completa.innerHTML = "Pantalla completa";
+                        video_form.appendChild(parrafo_pantalla_completa);
+                    }   
+                    let script_video = document.createElement("script");
+                    script_video.setAttribute("src",objeto.url_script_video);
+                    video_form.appendChild(video_iframe);
+                    video_form.appendChild(script_video);
+                    return video_form;
+                    // console.log(video_piper);
                 }
                 
-        }            
+        }   
+        function toFull(id) {
+            // var docElm = document.documentElement;
+            var docElm = document.querySelector(id);
+            // console.log(docElm);
+            //W3C
+            if (docElm.requestFullscreen) {
+                docElm.requestFullscreen();
+            }
+            //FireFox
+            else if (docElm.mozRequestFullScreen) {
+                docElm.mozRequestFullScreen();
+            }
+            //Chrome
+            else if (docElm.webkitRequestFullScreen) {
+                docElm.webkitRequestFullScreen();
+            }
+            //IE
+            else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        }         
             // var elemento = function (objeto) {
             //     return new Constructor(objeto);
             // };
@@ -994,14 +1068,15 @@ var check_video_completo = true;
 
 
     <script>
-        crear_push({
-            show_at:20,
-            type:"video-transparente",
-            id_video:"zHqktWsJaY4v"
-        })
         // crear_push({
         //     show_at:false,
+        //     type:"video-transparente",
+        //     id_video:"zHqktWsJaY4v"
+        // })
+        // crear_push({
+        //     show_at:10,
         //     type:"video-piper",
+        //     url_script_video:"https://videofunnel.in/public/js/videoformiframe.js",
         //     data:{
         //         product_id: "m819xasd",
         //         video_share: "https://videofunnel.in/videofunnels/m819xasd/",
@@ -1028,15 +1103,23 @@ var check_video_completo = true;
         //     style_text_close:"color: #fff;font-size: 15px;padding-right:0px;padding-top:0px;",
         //     subtitle_text_header:"¡Te esperamos en nuestra página web!",
         //     style_subtitle:"color: #fff;font-size: 10px;margin-top: 7px;margin-bottom: 7px;",
-        //     fullscreen:false,
+        //     fullscreen:true,
         //     url_video:"https://swiftcdn6.global.ssl.fastly.net/projects/6140ddc1320a4/index.html?cb=19k9qary4iv60lrfq4lgw",
         //     url_script_video:"https://vsplayer.global.ssl.fastly.net/player-wrapper-v4.js",
         //     footer:"¡Gracias por tu interés! Te esperamos en nuestra página web!",
         //     style_footer:"color:red; font-size:12px;"
         // })
+        // crear_push({
+        //     type:"video-position",
+        //     url_video:"https://swiftcdn6.global.ssl.fastly.net/projects/6140ddc1320a4/index.html?cb=19k9qary4iv60lrfq4lgw",
+        //     url_script_video:"https://vsplayer.global.ssl.fastly.net/player-wrapper-v4.js",
+        // })
         
-//         crear_push({
-//     show_at:100,
+        // console.log(video_position);
+    
+        
+//     crear_push({
+//     show_at:80,
 //     type:"form",
 //     form_width:"500",
 //     form_background_color:"#000",
@@ -1080,7 +1163,8 @@ var check_video_completo = true;
 //     },
 //     footer:"Texto cambiado",
 //     style_footer:"color:#fff; font-size:15px;"
-// });
+// }
+// );
 
 
 
@@ -1091,7 +1175,7 @@ create_footer({
         responsive_width: 600,
         movil_size: 40,
         web_size: 80,
-        open_to: 100,
+        show_at: 100,
         data_form:{
             show_at:false,
             type:"video",
@@ -1112,6 +1196,8 @@ create_footer({
         }
     });
     </script>
+
+
 
     
     
